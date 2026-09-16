@@ -4,18 +4,18 @@
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
 
-  <title>Nexora | Web Development</title>
+  <title>Nexora Studio — Websites That Work</title>
 
   <meta
     name="description"
-    content="Nexora creates modern, responsive websites for businesses and brands."
+    content="Nexora Studio creates modern websites, customized digital solutions and training for businesses and individuals."
   >
 
   <style>
     * {
+      box-sizing: border-box;
       margin: 0;
       padding: 0;
-      box-sizing: border-box;
     }
 
     html {
@@ -23,10 +23,11 @@
     }
 
     body {
-      font-family: Arial, sans-serif;
-      background: #080808;
-      color: #ffffff;
+      font-family: Arial, Helvetica, sans-serif;
+      background: #050505;
+      color: #fff;
       line-height: 1.6;
+      overflow-x: hidden;
     }
 
     a {
@@ -34,97 +35,91 @@
       color: inherit;
     }
 
-    .container {
-      width: 90%;
-      max-width: 1100px;
-      margin: auto;
-    }
-
-    /* NAVBAR */
     nav {
-      position: sticky;
+      position: fixed;
       top: 0;
-      z-index: 100;
-      background: rgba(8, 8, 8, 0.92);
-      backdrop-filter: blur(10px);
-      border-bottom: 1px solid #222;
-    }
-
-    .nav-content {
-      height: 70px;
+      left: 0;
+      width: 100%;
+      z-index: 1000;
+      padding: 18px 7%;
       display: flex;
       align-items: center;
       justify-content: space-between;
+      background: rgba(5, 5, 5, 0.82);
+      backdrop-filter: blur(15px);
+      border-bottom: 1px solid rgba(255,255,255,.08);
     }
 
     .logo {
       font-size: 24px;
       font-weight: 800;
-      letter-spacing: -1px;
+      letter-spacing: 2px;
     }
 
     .logo span {
-      color: #00e5ff;
+      color: #168cff;
     }
 
-    .nav-links {
+    nav ul {
       display: flex;
-      gap: 25px;
+      gap: 28px;
       list-style: none;
     }
 
-    .nav-links a {
+    nav ul a {
       color: #aaa;
-      transition: 0.3s;
+      transition: .25s;
     }
 
-    .nav-links a:hover {
-      color: #00e5ff;
+    nav ul a:hover {
+      color: #168cff;
     }
 
-    /* HERO */
     .hero {
-      min-height: 90vh;
+      min-height: 100vh;
       display: flex;
       align-items: center;
+      justify-content: center;
       text-align: center;
+      padding: 120px 7% 70px;
       background:
-        radial-gradient(circle at top, #10252b 0%, #080808 45%);
+        radial-gradient(circle at 50% 20%, rgba(22,140,255,.20), transparent 35%),
+        #050505;
     }
 
     .hero-content {
-      max-width: 800px;
-      margin: auto;
+      max-width: 900px;
     }
 
     .tag {
-      display: inline-block;
-      padding: 7px 15px;
-      border: 1px solid #00e5ff;
-      border-radius: 30px;
-      color: #00e5ff;
-      font-size: 14px;
-      margin-bottom: 25px;
+      color: #168cff;
+      font-size: 13px;
+      font-weight: bold;
+      letter-spacing: 4px;
+      margin-bottom: 20px;
+      text-transform: uppercase;
     }
 
-    .hero h1 {
-      font-size: clamp(45px, 8vw, 85px);
+    h1 {
+      font-size: clamp(45px, 8vw, 90px);
       line-height: 1;
+      letter-spacing: -4px;
       margin-bottom: 25px;
     }
 
-    .hero h1 span {
-      color: #00e5ff;
+    h1 span {
+      color: #168cff;
     }
 
     .hero p {
-      color: #aaa;
-      font-size: 19px;
       max-width: 650px;
-      margin: 0 auto 35px;
+      margin: auto;
+      color: #aaa;
+      font-size: 18px;
     }
 
     .buttons {
+      margin-top: 35px;
       display: flex;
       justify-content: center;
       gap: 15px;
@@ -132,191 +127,218 @@
     }
 
     .btn {
-      padding: 13px 24px;
-      border-radius: 8px;
+      display: inline-block;
+      padding: 14px 24px;
+      border-radius: 10px;
       font-weight: bold;
-      transition: 0.3s;
+      transition: .25s;
     }
 
-    .primary {
-      background: #00e5ff;
-      color: #000;
-    }
-
-    .primary:hover {
-      transform: translateY(-3px);
-      box-shadow: 0 10px 30px rgba(0, 229, 255, 0.2);
-    }
-
-    .secondary {
-      border: 1px solid #444;
+    .btn-primary {
+      background: #168cff;
       color: #fff;
     }
 
-    .secondary:hover {
-      border-color: #00e5ff;
-      color: #00e5ff;
+    .btn-primary:hover {
+      transform: translateY(-3px);
+      box-shadow: 0 12px 35px rgba(22,140,255,.3);
     }
 
-    /* SECTIONS */
+    .btn-secondary {
+      border: 1px solid #333;
+      color: #fff;
+    }
+
+    .btn-secondary:hover {
+      border-color: #168cff;
+      color: #168cff;
+    }
+
     section {
-      padding: 90px 0;
+      padding: 100px 7%;
     }
 
     .section-title {
       text-align: center;
-      margin-bottom: 50px;
+      max-width: 700px;
+      margin: 0 auto 55px;
     }
 
     .section-title h2 {
-      font-size: 40px;
-      margin-bottom: 10px;
+      font-size: clamp(35px, 5vw, 55px);
+      margin-bottom: 15px;
     }
 
     .section-title p {
-      color: #888;
+      color: #999;
     }
 
-    /* ABOUT */
-    .about {
-      max-width: 800px;
-      margin: auto;
-      text-align: center;
-      color: #aaa;
-      font-size: 18px;
-    }
-
-    /* SERVICES */
     .services {
       display: grid;
       grid-template-columns: repeat(3, 1fr);
       gap: 20px;
+      max-width: 1100px;
+      margin: auto;
     }
 
     .card {
-      background: #101010;
-      border: 1px solid #222;
       padding: 30px;
-      border-radius: 15px;
-      transition: 0.3s;
+      background: #0d0d0d;
+      border: 1px solid #1c1c1c;
+      border-radius: 18px;
+      transition: .3s;
     }
 
     .card:hover {
-      transform: translateY(-7px);
-      border-color: #00e5ff;
+      transform: translateY(-6px);
+      border-color: #168cff;
     }
 
-    .card-icon {
+    .icon {
       font-size: 35px;
-      margin-bottom: 15px;
+      margin-bottom: 20px;
     }
 
     .card h3 {
       margin-bottom: 10px;
+      font-size: 22px;
     }
 
     .card p {
-      color: #888;
+      color: #999;
     }
 
-    /* PROJECTS */
-    .projects {
+    .training {
+      background: #080808;
+    }
+
+    .training-box {
+      max-width: 1000px;
+      margin: auto;
+      padding: 45px;
+      border-radius: 24px;
+      border: 1px solid #202020;
+      background:
+        radial-gradient(circle at top right, rgba(22,140,255,.13), transparent 35%),
+        #0d0d0d;
+    }
+
+    .training-box h2 {
+      font-size: clamp(35px, 5vw, 60px);
+      margin-bottom: 18px;
+    }
+
+    .training-box p {
+      color: #aaa;
+      max-width: 700px;
+    }
+
+    .training-list {
       display: grid;
       grid-template-columns: repeat(2, 1fr);
-      gap: 25px;
+      gap: 15px;
+      margin: 30px 0;
     }
 
-    .project {
-      background: #101010;
+    .training-item {
+      padding: 16px;
       border: 1px solid #222;
-      border-radius: 15px;
-      padding: 30px;
-      transition: 0.3s;
+      border-radius: 12px;
+      color: #ddd;
+      background: #090909;
     }
 
-    .project:hover {
-      transform: translateY(-5px);
-      border-color: #00e5ff;
+    .process {
+      display: grid;
+      grid-template-columns: repeat(3, 1fr);
+      gap: 20px;
+      max-width: 1000px;
+      margin: auto;
     }
 
-    .project-number {
-      color: #00e5ff;
+    .step {
+      text-align: center;
+      padding: 25px;
+    }
+
+    .number {
+      width: 50px;
+      height: 50px;
+      margin: 0 auto 18px;
+      border-radius: 50%;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      background: #168cff;
       font-weight: bold;
+    }
+
+    .step p {
+      color: #999;
+      margin-top: 8px;
+    }
+
+    .contact {
+      text-align: center;
+      background:
+        radial-gradient(circle at center, rgba(22,140,255,.15), transparent 40%),
+        #050505;
+    }
+
+    .contact-box {
+      max-width: 800px;
+      margin: auto;
+    }
+
+    .contact h2 {
+      font-size: clamp(40px, 6vw, 70px);
       margin-bottom: 15px;
     }
 
-    .project h3 {
-      font-size: 25px;
-      margin-bottom: 10px;
+    .contact p {
+      color: #aaa;
+      margin-bottom: 25px;
     }
 
-    .project p {
-      color: #888;
-      margin-bottom: 20px;
-    }
-
-    .project-link {
-      color: #00e5ff;
+    .email {
+      display: inline-block;
+      margin-top: 20px;
+      color: #168cff;
+      font-size: 18px;
       font-weight: bold;
     }
 
-    /* TECH */
-    .tech-list {
-      display: flex;
-      justify-content: center;
-      flex-wrap: wrap;
-      gap: 12px;
-    }
-
-    .tech {
-      padding: 10px 18px;
-      background: #101010;
-      border: 1px solid #333;
-      border-radius: 30px;
-      color: #ccc;
-    }
-
-    /* CONTACT */
-    .contact-box {
-      max-width: 700px;
-      margin: auto;
-      text-align: center;
-      background: #101010;
-      border: 1px solid #222;
-      border-radius: 20px;
-      padding: 50px 25px;
-    }
-
-    .contact-box p {
-      color: #888;
-      margin: 15px 0 30px;
-    }
-
-    /* FOOTER */
     footer {
-      border-top: 1px solid #222;
-      padding: 30px 0;
+      padding: 30px 7%;
       text-align: center;
+      border-top: 1px solid #151515;
       color: #666;
     }
 
-    /* MOBILE */
-    @media (max-width: 700px) {
-      .nav-links {
+    footer span {
+      color: #168cff;
+    }
+
+    @media (max-width: 800px) {
+      nav ul {
         display: none;
       }
 
       .services,
-      .projects {
+      .process {
         grid-template-columns: 1fr;
       }
 
-      section {
-        padding: 65px 0;
+      .training-list {
+        grid-template-columns: 1fr;
       }
 
-      .hero {
-        min-height: 80vh;
+      .training-box {
+        padding: 30px 22px;
+      }
+
+      section {
+        padding: 75px 6%;
       }
     }
   </style>
@@ -324,194 +346,50 @@
 
 <body>
 
-  <!-- NAVBAR -->
+  <!-- NAVIGATION -->
   <nav>
-    <div class="container nav-content">
-      <a href="#" class="logo">NEX<span>ORA</span></a>
+    <a href="#home" class="logo">
+      NEX<span>ORA</span>
+    </a>
 
-      <ul class="nav-links">
-        <li><a href="#about">About</a></li>
-        <li><a href="#services">Services</a></li>
-        <li><a href="#projects">Projects</a></li>
-        <li><a href="#contact">Contact</a></li>
-      </ul>
-    </div>
+    <ul>
+      <li><a href="#home">Home</a></li>
+      <li><a href="#services">Services</a></li>
+      <li><a href="#training">Training</a></li>
+      <li><a href="#process">Process</a></li>
+      <li><a href="#contact">Contact</a></li>
+    </ul>
   </nav>
 
-  <!-- HERO -->
-  <header class="hero">
-    <div class="container hero-content">
 
-      <div class="tag">WEB DEVELOPMENT • DESIGN • DIGITAL</div>
+  <!-- HERO -->
+  <section class="hero" id="home">
+    <div class="hero-content">
+
+      <div class="tag">NEXORA STUDIO</div>
 
       <h1>
-        We build websites<br>
-        that make <span>businesses stand out.</span>
+        We Build Digital
+        <span>Experiences.</span>
       </h1>
 
       <p>
-        Nexora creates modern, responsive and professional websites
-        designed to help businesses build a stronger online presence.
+        Modern websites, customized digital solutions and practical
+        training designed to help businesses and individuals grow online.
       </p>
 
       <div class="buttons">
-        <a href="#projects" class="btn primary">View Our Work</a>
-        <a href="#contact" class="btn secondary">Let's Work Together</a>
-      </div>
 
-    </div>
-  </header>
-
-  <!-- ABOUT -->
-  <section id="about">
-    <div class="container">
-
-      <div class="section-title">
-        <h2>About Nexora</h2>
-        <p>Turning ideas into modern websites.</p>
-      </div>
-
-      <p class="about">
-        Nexora is a web development brand focused on creating clean,
-        modern and mobile-friendly websites for businesses, brands
-        and individuals. We combine design, technology and simplicity
-        to create websites that look professional and are easy to use.
-      </p>
-
-    </div>
-  </section>
-
-  <!-- SERVICES -->
-  <section id="services">
-    <div class="container">
-
-      <div class="section-title">
-        <h2>What We Do</h2>
-        <p>Digital solutions built around your goals.</p>
-      </div>
-
-      <div class="services">
-
-        <div class="card">
-          <div class="card-icon">🌐</div>
-          <h3>Business Websites</h3>
-          <p>
-            Professional websites that help businesses establish
-            credibility and reach more customers online.
-          </p>
-        </div>
-
-        <div class="card">
-          <div class="card-icon">🚀</div>
-          <h3>Landing Pages</h3>
-          <p>
-            Modern landing pages designed to present products,
-            services and offers clearly.
-          </p>
-        </div>
-
-        <div class="card">
-          <div class="card-icon">📱</div>
-          <h3>Responsive Design</h3>
-          <p>
-            Websites that work smoothly across phones, tablets
-            and desktop devices.
-          </p>
-        </div>
-
-      </div>
-    </div>
-  </section>
-
-  <!-- PROJECTS -->
-  <section id="projects">
-    <div class="container">
-
-      <div class="section-title">
-        <h2>Featured Projects</h2>
-        <p>A selection of Nexora's work.</p>
-      </div>
-
-      <div class="projects">
-
-        <div class="project">
-          <div class="project-number">01 / PROJECT</div>
-          <h3>Shogan Restaurant</h3>
-          <p>
-            A modern restaurant website concept designed to give
-            customers a clean way to discover the restaurant and
-            explore its offerings.
-          </p>
-
-          <a
-            href="https://shogan-abj-concept.lovable.app/"
-            target="_blank"
-            class="project-link"
-          >
-            View Project →
-          </a>
-        </div>
-
-        <div class="project">
-          <div class="project-number">02 / PROJECT</div>
-          <h3>Frugalify</h3>
-          <p>
-            A modern web concept focused on helping users understand
-            and manage their savings.
-          </p>
-
-          <a
-            href="https://frugalify.vercel.app/#why-save"
-            target="_blank"
-            class="project-link"
-          >
-            View Project →
-          </a>
-        </div>
-
-      </div>
-    </div>
-  </section>
-
-  <!-- TECHNOLOGY -->
-  <section>
-    <div class="container">
-
-      <div class="section-title">
-        <h2>Our Tools</h2>
-        <p>Technologies and platforms we work with.</p>
-      </div>
-
-      <div class="tech-list">
-        <span class="tech">HTML</span>
-        <span class="tech">CSS</span>
-        <span class="tech">JavaScript</span>
-        <span class="tech">React</span>
-        <span class="tech">GitHub</span>
-        <span class="tech">Vercel</span>
-        <span class="tech">Lovable</span>
-      </div>
-
-    </div>
-  </section>
-
-  <!-- CONTACT -->
-  <section id="contact">
-    <div class="container">
-
-      <div class="contact-box">
-
-        <h2>Have a project in mind?</h2>
-
-        <p>
-          Let's create a modern website for your business or brand.
-        </p>
-
+        <!-- EMAIL CONTACT BUTTON -->
         <a
-          href="mailto:YOUR_EMAIL@example.com"
-          class="btn primary"
+          href="mailto:eseodafe16@gmail.com?subject=Website%20Project%20Inquiry"
+          class="btn btn-primary"
         >
-          Contact Nexora
+          Start a Project
+        </a>
+
+        <a href="#services" class="btn btn-secondary">
+          Explore Services
         </a>
 
       </div>
@@ -519,12 +397,208 @@
     </div>
   </section>
 
+
+  <!-- SERVICES -->
+  <section id="services">
+
+    <div class="section-title">
+      <div class="tag">WHAT WE DO</div>
+
+      <h2>Digital solutions built around you.</h2>
+
+      <p>
+        From websites to customized digital solutions,
+        Nexora helps turn ideas into useful online experiences.
+      </p>
+    </div>
+
+    <div class="services">
+
+      <div class="card">
+        <div class="icon">🌐</div>
+        <h3>Website Development</h3>
+        <p>
+          Modern, responsive websites designed to make your
+          business look professional and attract customers.
+        </p>
+      </div>
+
+      <div class="card">
+        <div class="icon">⚡</div>
+        <h3>Custom Solutions</h3>
+        <p>
+          Customized digital solutions built around your
+          specific business, project or personal needs.
+        </p>
+      </div>
+
+      <div class="card">
+        <div class="icon">🎯</div>
+        <h3>Digital Strategy</h3>
+        <p>
+          Practical ideas and digital tools that help you
+          present your brand and reach people online.
+        </p>
+      </div>
+
+    </div>
+  </section>
+
+
+  <!-- CUSTOMIZED TRAINING -->
+  <section class="training" id="training">
+
+    <div class="training-box">
+
+      <div class="tag">CUSTOMIZED TRAINING</div>
+
+      <h2>Learn exactly what you need.</h2>
+
+      <p>
+        Nexora also provides customized training designed around
+        your current skill level, goals and project. Instead of
+        following a generic course, the training can focus on
+        exactly what you want to learn.
+      </p>
+
+      <div class="training-list">
+
+        <div class="training-item">
+          ✓ Website development
+        </div>
+
+        <div class="training-item">
+          ✓ HTML & CSS
+        </div>
+
+        <div class="training-item">
+          ✓ JavaScript basics
+        </div>
+
+        <div class="training-item">
+          ✓ Building real projects
+        </div>
+
+        <div class="training-item">
+          ✓ Using AI for development
+        </div>
+
+        <div class="training-item">
+          ✓ Customized one-on-one guidance
+        </div>
+
+      </div>
+
+      <a
+        href="mailto:eseodafe16@gmail.com?subject=Customized%20Training%20Inquiry"
+        class="btn btn-primary"
+      >
+        Ask About Training
+      </a>
+
+    </div>
+  </section>
+
+
+  <!-- PROCESS -->
+  <section id="process">
+
+    <div class="section-title">
+
+      <div class="tag">HOW IT WORKS</div>
+
+      <h2>Simple. Clear. Customized.</h2>
+
+      <p>
+        Every project starts with understanding what you actually need.
+      </p>
+
+    </div>
+
+    <div class="process">
+
+      <div class="step">
+
+        <div class="number">1</div>
+
+        <h3>Tell Me</h3>
+
+        <p>
+          Send your idea, business details or project requirements.
+        </p>
+
+      </div>
+
+      <div class="step">
+
+        <div class="number">2</div>
+
+        <h3>We Plan</h3>
+
+        <p>
+          We figure out the best structure, features and direction.
+        </p>
+
+      </div>
+
+      <div class="step">
+
+        <div class="number">3</div>
+
+        <h3>We Build</h3>
+
+        <p>
+          Your website or digital solution is created and refined.
+        </p>
+
+      </div>
+
+    </div>
+  </section>
+
+
+  <!-- CONTACT -->
+  <section class="contact" id="contact">
+
+    <div class="contact-box">
+
+      <div class="tag">LET'S WORK TOGETHER</div>
+
+      <h2>Have a project in mind?</h2>
+
+      <p>
+        Tell me what you're building and let's discuss how Nexora
+        can help bring it to life.
+      </p>
+
+      <!-- MAIN EMAIL BUTTON -->
+      <a
+        href="mailto:eseodafe16@gmail.com?subject=Website%20Project%20Inquiry"
+        class="btn btn-primary"
+      >
+        Contact Nexora
+      </a>
+
+      <br>
+
+      <!-- DIRECT EMAIL -->
+      <a
+        href="mailto:eseodafe16@gmail.com"
+        class="email"
+      >
+        eseodafe16@gmail.com
+      </a>
+
+    </div>
+
+  </section>
+
+
   <!-- FOOTER -->
   <footer>
-    <div class="container">
-      <p>© 2026 Nexora. All rights reserved.</p>
-    </div>
+    © 2026 <span>Nexora Studio</span>. All rights reserved.
   </footer>
 
+
 </body>
-</html>
+    </html>
